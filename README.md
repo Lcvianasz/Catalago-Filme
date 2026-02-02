@@ -61,3 +61,60 @@ src/main/java/com/example/catalogofilmes
 CREATE DATABASE catalogo_filmes
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
+
+▶️ Como Executar o Projeto
+mvn spring-boot:run
+
+
+A aplicação ficará disponível em:
+
+http://localhost:8080
+
+🔗 Endpoints Disponíveis
+🎭 Gêneros
+Método	Endpoint	Descrição
+GET	/generos	Listar gêneros
+POST	/generos	Criar novo gênero
+Exemplo (POST /generos)
+{
+  "nome": "Ação"
+}
+
+🎬 Filmes
+Método	Endpoint	Descrição
+GET	/filmes	Listar filmes
+POST	/filmes	Criar novo filme
+Exemplo (POST /filmes)
+{
+  "titulo": "Matrix",
+  "anoLancamento": 1999
+}
+
+🧪 Testes
+
+Os endpoints podem ser testados utilizando:
+
+Postman
+
+Insomnia
+
+curl
+
+🛠️ Melhorias Futuras
+
+DTOs para isolamento das entidades
+
+Relacionar filmes com gêneros via endpoint
+
+Paginação e filtros
+
+Documentação com Swagger / OpenAPI
+
+Autenticação e autorização
+
+Docker (API + MySQL)
+
+👨‍💻 Autor
+
+Lucas Viana Souza
+Estudante e desenvolvedor backend Java
