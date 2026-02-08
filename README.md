@@ -118,3 +118,76 @@ Docker (API + MySQL)
 
 Lucas Viana Souza
 Estudante e desenvolvedor backend Java
+
+## 📌 Funcionalidades Implementadas
+
+### ✅ Cadastro de Filmes
+- Criação de filmes com:
+  - Título
+  - Ano de lançamento
+- Retorno via DTO (`FilmeResponseDTO`)
+
+### ✅ Cadastro de Gêneros
+- Gêneros cadastrados separadamente
+- Associação posterior aos filmes
+
+### ✅ Associação de Gêneros a um Filme
+- Endpoint para adicionar **um ou mais gêneros** a um filme existente
+- Uso de **ID do filme** e **lista de IDs de gêneros**
+- Relacionamento **Many-to-Many**
+
+### ✅ Listagem de Filmes
+- Lista todos os filmes
+- Retorna os gêneros associados a cada filme
+
+---
+
+## 🔗 Endpoints Disponíveis
+
+### 🎥 Criar Filme
+```http
+POST /filmes
+
+📥 Body:
+
+{
+  "titulo": "Matrix",
+  "anoLancamento": 1999
+}
+
+🎭 Adicionar Gêneros a um Filme
+
+POST /filmes/{filmeId}/generos
+
+📥 Body:
+
+{
+  "generosIds": [1, 2, 3]
+}
+
+📌 Observações:
+
+    O filmeId deve existir
+
+    Os IDs dos gêneros devem ser válidos
+
+📃 Listar Filmes
+
+GET /filmes
+
+📤 Retorno:
+
+[
+  {
+    "id": 1,
+    "titulo": "Matrix",
+    "anoLancamento": 1999,
+    "generos": [
+      {
+        "id": 1,
+        "nome": "Ficção Científica"
+      }
+    ]
+  }
+]
+
