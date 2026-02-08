@@ -8,7 +8,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "filmes")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -17,7 +18,9 @@ public class Filme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String titulo;
+
     private Integer anoLancamento;
 
     @ManyToMany
@@ -26,8 +29,6 @@ public class Filme {
             joinColumns = @JoinColumn(name = "filme_id"),
             inverseJoinColumns = @JoinColumn(name = "genero_id")
     )
-    @Builder.Default
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Set<Genero> generos = new HashSet<>();
 }
+

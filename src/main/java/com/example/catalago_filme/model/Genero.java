@@ -9,21 +9,18 @@ import java.util.Set;
 
 @Entity
 @Table(name = "generos")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Genero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
 
     @ManyToMany(mappedBy = "generos")
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    @Builder.Default
-    private Set<Filme> filmes = new HashSet<>();
-
+    private Set<Filme> filmes;
 }
